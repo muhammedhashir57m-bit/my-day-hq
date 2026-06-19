@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="My Day HQ"/>
+<meta name="theme-color" content="#1a1a2e"/>
+<title>My Day HQ</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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ZGB0CTARAPJA6IdHAcjY2InAjYsff3dWawEgHA4BAECAFAAACJACAAABUgAAIEAKAAAESAEAgAApAAAQIAUAAAKkAABAgBQAAAiQAgAAAVIAACBACgAABEgBAIAAKQAAECAFAAACpAAAQIAUAAAIkAKQM+cNHLcp6zUApMH7W74oAAAQIAUAAAKkAOSQMRlQNt7X8kcByCm/LEBZeD/LJwUAAAKkAOSY1gwUnfex/FIAcs4vD1BU3r/yrdLbO6ee9SJozI2LH3931msAmIrgLwYTgALxSwXknfep4jABKDATASAPhH4xKQAAECCHAAAgQAoAAARIAQCAACkAABAgBQAAAqQAAECAFAAACJACAAABUgAAIEAKAAAESAEAgAApAAAQIAUAAAKkAABAgBQAAAiQAgAAAVIAACBACgAABEgBAIAAKQAAECAFAAACpAAAQIAUAAAIkAIAAAFSAAAgQAoAAARIAQCAACkAABAgBQAAAqQAAECAFAAACFBX1gsAiq9arUYLFpw0vHDhguETTzx+37HHHrNv7tw59VmzeuszZvRE3d3d9T179ka1Wq2yc+fOyq9+9evKU0/9qvKznz3esWXLjzofeGBL5zPPPFvJ+nVASCq9vXPqWS8CiqZa7Y62bXtiR5zHLFr0lpkPP7y15anbXXfdMnjKKQuHG/33H/vYuu6/+7svT2/1645VrVajZcuW7l26dMnQm9/8pqFqtdr0c9Xr9WjLloc6v/nNO7uuu+6fun75y6dMJyFlJgBALIcfPqv+kY98aM/557977+GHz0pkB6JSqUQLF84fXrhw/vDFF1+4+4477ur627/93PQHH9zSmcTzAwfTsoGGdHR0RB/60Pv2bNny3Zf/8i//+56kwn+8r7NkyVuG7r77lsGrrvpCbfbs15hSQgoUAGBKxxwzd9+tt/7T4Kc+tW53b+9hbQnkSqUSnXNO39777vv2y29721lD7fiaEBIFAJjUyScvGP7Od24fPO20P2z4vIMkvepVh9c3bbp610c/+uE9WXx9KCsFAJjQ4sWLhm+++eu7jjjiVZmP4S+55KLdn/70+t1ZrwPKQgEAxjV//knDmzZdvWvGjBmZh/+ID37wvXsuvNAkAJKgAAAHOfLII+o33PDVXTNnzsxN+I/4+Mcv2n3WWX/inABokcsAgYNcccX/avrs+6GhoejOO+/uuu22O7t++MMfdf7iF09VBgcHK93d3fU5c2bX5807ft8ZZ7xpaNmytw8ddtihTX2Nz3/+M7U3vvGMmdu3P+PmQdAkEwDgAGef/fahJUve0tQe9m233dF18smLZq5cuarna1+7ftrWrY907NixozI8PBwNDg5WHnvsiY6bbrq16yMf+Z/VefNOmXn55VdMHx6Of27hkUceUb/00kucDwAtUACA/aZPnxZ94hMXxw7Wer0eXXLJpd0rV67qefLJXzT0vrJz587KpZd+unvp0vNmvPTSjth78uedd/bek046YV/cxwG/pQAA+73znefu/b3f+93Yobpmzfruz3/+75u63fB9993fefbZ7+qp1eL1jo6OjujCCz9sCgBNUgCA/d7//j+PfYb97bd/q+vKK1v7rIEf/OCHnevWfao77uP+9E/PGpo9+6jcnagIRaAAAFEURdHChfOHTzxxXqy9/1ptd3TRRZ+IHdzj+fKXvzJ969ZHYr0ndXV1RStWLN+bxNeH0CgAQBRFUdTM7Xavuuqa6Y0e85/K8PBwtH59/CnAkiUuCYRmKABAFEVRdOaZZ8QO0k2bbpyW5Bruvvs7Xdu2bY91QuCpp548PGtWr8MAEJMCAEQzZsyon3DC8bHG/z/+8b93PPLITxJ9DxkeHo6+8Y3+WKWis7MzWrhwfiafUwBFpgAA0fz5J+3r6Ij3drB58z2p3Ehs8+Z7OuM+ZuHC+S4HhJjcCRDa5N5773w56zVM5PjjXxc7QB966Mep7EA89NCPYxeA173utQoAxGQCAETHHDM3doA+/PDW2EHdiO3bn6nEvcXv3LlzFACISQEAorlz58Q+ie7JJ3+Z2n34n3zyl7Hem5pZP4Su48UXn/ZhGhC43t7DYgXo0NBQtGvXrtTeO3bsiHdr4EMPPUQBgJhMAICoWq3GCtCdO19Odcdhx46dsf59T081pZVAeSkAQNTdHe9OvoODgymt5LdefjlewZg+vdsEAGJSAIBo9+54HwHQ09OT0kp+a8aMGbECPW5hABQAIIqiWq0WK0APOSTdY+6HHXZorH8f95wBQAEAoih66aV4ATptWldUrSbyGUDjOvTQQ2MVjLjnDABuBARts2jRW2Y+/PDWlkv3XXfdMnjKKQsTvfXt00//OvYe9Jw5R+974on/m8pOxO/8zjGxrut/9tnnTAAgJhMAIHrqqV/Ffi848cQTUrn5zqtffWT9qKNeE2sC8Mgjj6ZyUyIos44oiiL3AoCw/fSnjzVRAOal8gE8r3/9ibGfd+vWR+zMQAwvvvh0xS8NEG3Z8lBHvR7vvL4/+qM3pFIATj/9vygA0AZ+aYDopZd2VB599Gex3g9OO+0Ph5O+BW9HR0d0zjl9e+M85oUX/l+lmQ8QgtApAEAURVH0rW99O9ZJwZVKJTr33GWxwnoqb37zm4Zmzz4qVqn45jfv7BoaGkpyGRAEBQCIoiiKbr31jthXBV1wwQf3zJrVm8gUoLOzM1q37q93x33cTTfd6momaML+AuBEQAjb9773/c7HHnsi1k7BEUe8qn7JJRfFDu3xvPe95+858cR5sa4s2LZte2Xz5nsUAIhhJO9NAIAoiqKoXq9HV111zbS4j1u16j17V6xY3tKhgD/4gwXD69b9dbz7EUdR9NnPfmF63NsYA7+lAAD7ffWr103btu03saaBHR0d0ZVXbqwtX/6Opg7Ev+EN/3n4n//52l09PT2xDiX85jfbK9dc87V4n2IE7KcAAPsNDg5WPvnJv4l9j9/Ozs7o6quv3PWVr3xx1+zZjd3EZ+bMmfVLLrlo9y23fH2wmfMIPvnJv+mu1WpxHwb8hwOOnb344tOV3t5kL+sBiuXaa2+ctmLF8r2LFr0x9vX4y5YtHXrrW8/cuXnzPV0333xb18MPb+3cvn175bnnnq90dU2rH330UfV5847fd8YZi4eWL3/H0GGHxbvn/4jbb/9W1z/+43WxD1dA6Eaf7+fkGeAA+/btiz7wgQ/3/Nu/3fXy4YfPih3Q3d3To7PO+uOhs87641SuzXvmmWcrF1zw0Woazw0hcQgAOMjTT/+6snLlqp5aLZET/BOzY8eOyooV5/c888yzrlqCFikAwLi++93vda5a9d969uxJ9F4/TRscHKyce+57eh58cIu7/kECDioA7gcAYVi89vEHRv430b+57bY7upYvXznjpZd2ZPq+sG3b9srZZ6/suf/+7wt/aNLYfDcBgMCMF/qTFYF7772v8/TTl8x44IFs9rwHBu7tXLToT2YKf0iWAgBM6fHHf95x5pnvmLF27Ybudk0Dnnvu+crFF3+i++yzV85wzB+SN24BcBgAymmycf9Ufz80NBR97nNXTl+w4LSZn/3sF6Y///wLqbxP1Gq7o8985n9PX7DgjTO/+MWrp+/bF+vuwMA4xst1EwAglueff6Gybt2nuufNO/mQ973vf1RvuunWrp07dyZWBrq6OqMHH/xR544d2Z53AGU34S+YGwJB+Uw1AYiiKBpYf9zJcZ93+vRp0UknnTC8YMHr95100gnDxx57TH3u3Dn7jjzyiHpPTzWqVqv1zs7GD+Hv3r0neuc7z+/xQT+QjPEmAJM2bCUAymeyEtBM+Mdx+eWfrq1a9Z6GrivctWtXZdmylT333/9/nPwHLZjosL5DAEDbXHjhx6qbNt3Q0C18e3p66l//+ld3LVjw+ti3JAamZgIAgRo9CUh7z3+0jo6O6EtfuqJ2zjl9DU0Cnn/+hcpb37p8xk9+8qgdFmjCRBOAKU+yUQKApHV1dUX/8A9X7nr729/W0OcFbNu2vbJkSd+Mn//8SSUAYpjsqj6/TEDbDQ0NRX/xFx/quf32uxo6yW/27NfUb7rpxl1z59ohgaQoAEAm9u4dis4//3093/72dxoqAccee8y+f/mXGwZf/eojlQBowFT39JmyALgpEJCW3bv3RCtXrur513/9bkNn+r/2tf9pX3//9YOzZvUqAdAiEwAgU7VaLTrvvP/a8Af9nHDC8fu+8Y1rdx1yyCFKALSg4b17JwMCQDE0Mr03AQCAADVcAJwLAAD512hemwAAQIBiFQBTAADIrzg5bQIAAAGKXQBMAQAgf+LmswkAAASoqQJgCgAA+dFMLpsAAECAmi4ApgAAkL1m89gEAAAC1FIBMAUAgOy0ksMtTwCUAABov1bz1yEAAAhQIgXAFAAA2ieJ3DUBAIACSWqnO7ECYAoAAMWR6ARACQCA9CSZsw4BAEABJL2TnXgBMAUAgPxLZQKgBABActLI1dQOASgBANC6tPLUOQAAkFNp7kynWgBMAQAgn1KfACgBABBf2vnZlkMASgAANK4dudm2cwCUAACYWrvy0kmAAJAT7dxZbmsBMAUAgHxo+wRACQCAg7U7HzM5BKAEAMArssjFzM4BUAIAILs8zPQkQCUAgJBlmYOZXwWgBAAQoqzzL/MCEEXZbwQAaKc85F4uCkAU5WNjAEDa8pJ3uSkAUZSfjQIAachTzuWqAERRvjYOACQlb/mWuwIQRfnbSADQijzmWu4WNFpv75x61msAgGblMfhH5HZhoykCABRNnsM/inJ6CGCsvG9EABitCLlViAIQRcXYmABQlLwqxCJHczgAgDwqSvCPKNRiR1MEAMiLooV/FBXoEMBYRdzYAJRPUfOokIsezSQAgCwUNfhHFHrxoykCALRL0cM/ikpUAKJICQAgXWUI/hGleSGjKQIAJK1M4R9FJS0AUaQEAJCMsgX/iFK+qNEUAQCaVdbwj6IACsAIRQCARpU5+EeU/gWOpQgAMJEQgn9EMC90LEUAgBEhBf+I4F7wWIoAQLhCDP4Rwb7wsRQBgHCEHPwjgt8AYykCAOUl+F9hQ0xAEQAoB6E/PhulAcoAQPEI/snZODEoAgD5JvQbZ0M1SRkAyAeh3xwbLSEKAUD7CP3W2YApUAYAkiXwk2eDtoFCABCPwE+fDZwhxQBA2Gfl/wOKW2j3bvx/xwAAAABJRU5ErkJggg=="/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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ZGB0CTARAPJA6IdHAcjY2InAjYsff3dWawEgHA4BAECAFAAACJACAAABUgAAIEAKAAAESAEAgAApAAAQIAUAAAKkAABAgBQAAAiQAgAAAVIAACBACgAABEgBAIAAKQAAECAFAAACpAAAQIAUAAAIkAKQM+cNHLcp6zUApMH7W74oAAAQIAUAAAKkAOSQMRlQNt7X8kcByCm/LEBZeD/LJwUAAAKkAOSY1gwUnfex/FIAcs4vD1BU3r/yrdLbO6ee9SJozI2LH3931msAmIrgLwYTgALxSwXknfep4jABKDATASAPhH4xKQAAECCHAAAgQAoAAARIAQCAACkAABAgBQAAAqQAAECAFAAACJACAAABUgAAIEAKAAAESAEAgAApAAAQIAUAAAKkAABAgBQAAAiQAgAAAVIAACBACgAABEgBAIAAKQAAECAFAAACpAAAQIAUAAAIkAIAAAFSAAAgQAoAAARIAQCAACkAABAgBQAAAqQAAECAFAAACFBX1gsAiq9arUYLFpw0vHDhguETTzx+37HHHrNv7tw59VmzeuszZvRE3d3d9T179ka1Wq2yc+fOyq9+9evKU0/9qvKznz3esWXLjzofeGBL5zPPPFvJ+nVASCq9vXPqWS8CiqZa7Y62bXtiR5zHLFr0lpkPP7y15anbXXfdMnjKKQuHG/33H/vYuu6/+7svT2/1645VrVajZcuW7l26dMnQm9/8pqFqtdr0c9Xr9WjLloc6v/nNO7uuu+6fun75y6dMJyFlJgBALIcfPqv+kY98aM/557977+GHz0pkB6JSqUQLF84fXrhw/vDFF1+4+4477ur627/93PQHH9zSmcTzAwfTsoGGdHR0RB/60Pv2bNny3Zf/8i//+56kwn+8r7NkyVuG7r77lsGrrvpCbfbs15hSQgoUAGBKxxwzd9+tt/7T4Kc+tW53b+9hbQnkSqUSnXNO39777vv2y29721lD7fiaEBIFAJjUyScvGP7Od24fPO20P2z4vIMkvepVh9c3bbp610c/+uE9WXx9KCsFAJjQ4sWLhm+++eu7jjjiVZmP4S+55KLdn/70+t1ZrwPKQgEAxjV//knDmzZdvWvGjBmZh/+ID37wvXsuvNAkAJKgAAAHOfLII+o33PDVXTNnzsxN+I/4+Mcv2n3WWX/inABokcsAgYNcccX/avrs+6GhoejOO+/u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"/>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{
+  --bg:#0f0f1a;--surface:#1a1a2e;--surface2:#22223a;--border:#2e2e4a;
+  --text:#f0f0f8;--text2:#9090b0;--text3:#5a5a7a;
+  --task:#4F8EF7;--sayask:#F7924F;--log:#4FBF7A;--pending:#B94FF7;--notes:#F74F7A;
+  --radius:14px;--safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow:hidden;}
+#app{display:flex;flex-direction:column;height:100%;max-width:520px;margin:0 auto;position:relative;}
+
+#header{padding:max(env(safe-area-inset-top,12px),12px) 16px 0;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;}
+.hdr-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;}
+.app-name{font-size:20px;font-weight:800;letter-spacing:-0.5px;}
+.app-date{font-size:11px;color:var(--text2);margin-top:1px;}
+.hdr-actions{display:flex;gap:6px;}
+.icon-btn{background:var(--surface2);border:1px solid var(--border);border-radius:10px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;color:var(--text);position:relative;}
+.sync-dot{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:#4FBF7A;display:none;}
+.sync-dot.on{display:block;}
+.sync-dot.warn{background:#F7924F;}
+
+#search-bar{display:none;padding:0 0 10px;}
+#search-bar.open{display:block;}
+#search-input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:14px;outline:none;}
+#search-input::placeholder{color:var(--text3);}
+
+.stats-row{display:flex;gap:6px;padding:10px 0;overflow-x:auto;scrollbar-width:none;}
+.stats-row::-webkit-scrollbar{display:none;}
+.stat-chip{display:flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:5px 11px;cursor:pointer;white-space:nowrap;transition:all .15s;}
+.stat-chip.active{border-color:var(--tab-color)!important;background:color-mix(in srgb,var(--tab-color) 15%,var(--surface2));}
+.stat-chip-icon{font-size:13px;}
+.stat-chip-num{font-size:12px;font-weight:700;color:var(--text2);}
+
+#tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 2px 6px;background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;gap:2px;transition:border-color .15s;}
+.tab.active{border-bottom-color:var(--tab-color);}
+.tab-icon{font-size:17px;}
+.tab-label{font-size:9px;font-weight:700;color:var(--text3);letter-spacing:.3px;}
+.tab.active .tab-label{color:var(--tab-color);}
+
+.section-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px 8px;flex-shrink:0;}
+.section-title{font-size:15px;font-weight:700;}
+.section-desc{font-size:11px;color:var(--text3);margin-top:2px;}
+.add-btn{padding:7px 18px;border:none;border-radius:20px;font-weight:700;font-size:13px;cursor:pointer;color:#fff;}
+
+.chip-row{display:flex;gap:6px;padding:0 16px 10px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;}
+.chip-row::-webkit-scrollbar{display:none;}
+.chip{border:1px solid var(--border);border-radius:20px;padding:5px 13px;font-size:12px;font-weight:600;cursor:pointer;background:var(--surface2);color:var(--text2);white-space:nowrap;transition:all .15s;}
+.chip.active{color:#fff;border-color:transparent;}
+
+#list-wrap{flex:1;overflow-y:auto;padding:0 12px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+#list-wrap::-webkit-scrollbar{width:4px;}
+#list-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+.empty-state{text-align:center;padding:60px 20px;color:var(--text3);}
+.empty-icon{font-size:40px;margin-bottom:10px;}
+.all-done{text-align:center;padding:20px;color:var(--log);font-weight:700;font-size:14px;}
+
+.card{background:var(--surface);border-radius:var(--radius);margin-bottom:9px;overflow:hidden;border:1px solid var(--border);border-left:4px solid var(--tab-color);transition:opacity .2s;}
+.card.done-card{opacity:.45;}
+.card-top{display:flex;align-items:flex-start;padding:12px 12px 10px;gap:9px;cursor:pointer;}
+.check-btn{background:none;border:none;font-size:20px;cursor:pointer;flex-shrink:0;padding:0;line-height:1;}
+.card-body{flex:1;min-width:0;}
+.card-text{font-size:14px;font-weight:600;color:var(--text);line-height:1.35;}
+.card-text.struck{text-decoration:line-through;color:var(--text3);}
+.person-tag{color:var(--sayask);font-weight:700;}
+.card-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.cat-badge{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;}
+.pri-tag{font-size:11px;padding:2px 7px;background:var(--surface2);border-radius:20px;color:var(--text2);}
+.meta-txt{font-size:11px;color:var(--text3);}
+.expand-arrow{color:var(--text3);font-size:11px;flex-shrink:0;margin-top:2px;}
+.card-expanded{padding:0 12px 12px;border-top:1px solid var(--border);}
+.note-line{font-size:13px;color:var(--text2);margin:6px 0;line-height:1.4;}
+.action-row{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;}
+.action-btn{background:none;border:none;font-size:13px;font-weight:600;cursor:pointer;color:var(--text2);padding:0;}
+.action-btn.danger{color:#e55;}
+.action-btn.success{color:var(--log);}
+
+#fab{position:fixed;bottom:calc(20px + var(--safe-bottom));right:18px;width:54px;height:54px;border-radius:27px;border:none;font-size:26px;color:#fff;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:20;display:flex;align-items:center;justify-content:center;font-weight:300;}
+
+/* MODALS */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;align-items:flex-end;}
+.overlay.open{display:flex;}
+.sheet{background:var(--surface);border-radius:20px 20px 0 0;width:100%;max-height:92vh;overflow-y:auto;padding-bottom:calc(16px + var(--safe-bottom));}
+.modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:20px 20px 0 0;}
+.modal-title{color:#fff;font-weight:700;font-size:15px;}
+.close-btn{background:rgba(255,255,255,.2);border:none;border-radius:50%;width:28px;height:28px;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal-body{padding:4px 16px 0;}
+.field-label{display:block;font-weight:600;font-size:12px;color:var(--text2);margin:13px 0 5px;text-transform:uppercase;letter-spacing:.5px;}
+.field-input{width:100%;padding:11px 13px;background:var(--surface2);border:1px solid var(--border);border-radius:11px;color:var(--text);font-size:14px;outline:none;font-family:inherit;}
+textarea.field-input{resize:vertical;min-height:70px;line-height:1.4;}
+.field-input:focus{border-color:var(--tab-color);}
+.modal-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2px;}
+.save-btn{width:100%;padding:14px;border:none;border-radius:12px;color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:18px;}
+
+/* STORAGE PANEL */
+#storage-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:50;align-items:flex-end;}
+#storage-overlay.open{display:flex;}
+.storage-sheet{background:var(--surface);border-radius:20px 20px 0 0;width:100%;padding-bottom:calc(20px + var(--safe-bottom));}
+.storage-hdr{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--border);}
+.storage-title{font-weight:700;font-size:15px;}
+.storage-body{padding:16px;}
+.storage-section{margin-bottom:20px;}
+.storage-section-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;}
+.storage-card{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;}
+.storage-card-title{font-size:14px;font-weight:700;margin-bottom:4px;}
+.storage-card-desc{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:10px;}
+.storage-btn{width:100%;padding:11px;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;color:#fff;margin-bottom:6px;}
+.storage-status{font-size:12px;color:var(--text3);margin-top:6px;text-align:center;}
+.status-green{color:var(--log);}
+.status-orange{color:var(--sayask);}
+.status-blue{color:var(--task);}
+.divider{border:none;border-top:1px solid var(--border);margin:4px 0 14px;}
+
+/* CONFIRM */
+#confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;align-items:center;justify-content:center;}
+#confirm-overlay.open{display:flex;}
+#confirm-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;width:80%;max-width:300px;text-align:center;}
+.confirm-msg{font-size:14px;color:var(--text);margin-bottom:16px;line-height:1.4;}
+.confirm-btns{display:flex;gap:10px;}
+.confirm-btns button{flex:1;padding:10px;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;}
+.confirm-cancel{background:var(--surface2);color:var(--text2);}
+.confirm-ok{background:#e55;color:#fff;}
+
+#toast{position:fixed;bottom:calc(88px + var(--safe-bottom));left:50%;transform:translateX(-50%) translateY(10px);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:9px 20px;border-radius:20px;font-size:13px;font-weight:600;z-index:100;opacity:0;transition:all .25s;white-space:nowrap;pointer-events:none;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.list-pad{height:calc(80px + var(--safe-bottom));}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="header">
+    <div class="hdr-top">
+      <div>
+        <div class="app-name">📋 My Day HQ</div>
+        <div class="app-date" id="date-label"></div>
+      </div>
+      <div class="hdr-actions">
+        <div class="icon-btn" onclick="toggleSearch()" title="Search">🔍</div>
+        <div class="icon-btn" onclick="openStorage()" title="Data & Backup" id="sync-btn">
+          💾
+          <span class="sync-dot" id="sync-dot"></span>
+        </div>
+      </div>
+    </div>
+    <div id="search-bar">
+      <input id="search-input" class="field-input" placeholder="Search across all items…" oninput="renderList()" autocomplete="off"/>
+    </div>
+    <div class="stats-row" id="stats-row"></div>
+  </div>
+
+  <div id="tabs"></div>
+
+  <div class="section-hdr">
+    <div>
+      <div class="section-title" id="sec-title"></div>
+      <div class="section-desc" id="sec-desc"></div>
+    </div>
+    <button class="add-btn" id="add-btn" onclick="openAdd()">+ Add</button>
+  </div>
+
+  <div class="chip-row" id="chip-row"></div>
+
+  <div id="list-wrap">
+    <div id="list"></div>
+    <div class="list-pad"></div>
+  </div>
+</div>
+
+<button id="fab" onclick="openAdd()">+</button>
+
+<!-- ADD/EDIT MODAL -->
+<div class="overlay" id="modal-overlay" onclick="maybeClose(event,'modal-overlay')">
+  <div class="sheet" id="modal">
+    <div class="modal-hdr" id="modal-hdr">
+      <span class="modal-title" id="modal-title">Add</span>
+      <button class="close-btn" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- STORAGE PANEL -->
+<div id="storage-overlay" onclick="maybeClose(event,'storage-overlay')">
+  <div class="storage-sheet">
+    <div class="storage-hdr">
+      <span class="storage-title">💾 Data & Backup</span>
+      <button class="close-btn" style="background:var(--surface2);color:var(--text2)" onclick="closeStorage()">✕</button>
+    </div>
+    <div class="storage-body">
+
+      <!-- GOOGLE DRIVE -->
+      <div class="storage-section">
+        <div class="storage-section-title">☁️ Google Drive — Auto Sync</div>
+        <div class="storage-card">
+          <div class="storage-card-title">Sync to Google Drive</div>
+          <div class="storage-card-desc">Your data saves to a file in your Google Drive automatically. It's always there — even if you switch phones or clear your browser.</div>
+          <div id="drive-status" class="storage-status">Not connected</div>
+          <div style="height:10px"></div>
+          <button class="storage-btn" style="background:var(--task)" id="drive-btn" onclick="handleDriveAction()">Connect Google Drive</button>
+          <button class="storage-btn" style="background:var(--surface2);color:var(--text2);display:none" id="drive-sync-now-btn" onclick="driveSyncNow()">↻ Sync Now</button>
+          <button class="storage-btn" style="background:var(--surface2);color:#e55;display:none" id="drive-disconnect-btn" onclick="driveDisconnect()">Disconnect</button>
+        </div>
+      </div>
+
+      <div class="storage-section">
+        <div class="storage-section-title">📁 Manual Backup — Works Offline</div>
+
+        <div class="storage-card">
+          <div class="storage-card-title">💾 Save Backup File</div>
+          <div class="storage-card-desc">Download all your data as a file to your phone. Keep it in Files, Google Drive, or anywhere safe.</div>
+          <button class="storage-btn" style="background:var(--log)" onclick="exportBackup()">Download Backup</button>
+          <div id="last-export-label" class="storage-status"></div>
+        </div>
+
+        <div class="storage-card">
+          <div class="storage-card-title">📂 Restore from Backup</div>
+          <div class="storage-card-desc">Load a backup file to restore all your data. This will replace your current data.</div>
+          <button class="storage-btn" style="background:var(--pending)" onclick="document.getElementById('restore-file').click()">Choose Backup File</button>
+          <input type="file" id="restore-file" accept=".json" style="display:none" onchange="importBackup(event)"/>
+          <div id="restore-status" class="storage-status"></div>
+        </div>
+      </div>
+
+      <div class="storage-section">
+        <div class="storage-section-title">📊 Your Data</div>
+        <div class="storage-card" id="data-summary"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM -->
+<div id="confirm-overlay">
+  <div id="confirm-box">
+    <div class="confirm-msg" id="confirm-msg"></div>
+    <div class="confirm-btns">
+      <button class="confirm-cancel" onclick="closeConfirm()">Cancel</button>
+      <button class="confirm-ok" id="confirm-ok-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── CONSTANTS ─────────────────────────────────────────────────────────────────
+const SECTIONS = ['tasks','sayask','log','pending','notes'];
+const SECTION_META = {
+  tasks:  {label:'To-Do Today',  icon:'✅', color:'#4F8EF7', desc:'Personal & professional tasks for the day'},
+  sayask: {label:'Say / Ask',    icon:'💬', color:'#F7924F', desc:'Things to tell or ask someone when you see them'},
+  log:    {label:'Done Log',     icon:'📋', color:'#4FBF7A', desc:'What you did & when — your daily record'},
+  pending:{label:'Pending',      icon:'⏳', color:'#B94FF7', desc:'Waiting on someone or something'},
+  notes:  {label:'Quick Notes',  icon:'📌', color:'#F74F7A', desc:'Capture anything before you forget it'},
+};
+const CATEGORIES = {
+  tasks:  ['Personal','Work','Urgent','Health','Finance','Family','Errand'],
+  sayask: ['Colleague','Friend','Family','Doctor','Client','Manager','Other'],
+  log:    ['Completed','Discussed','Decided','Sent','Called','Meeting'],
+  pending:['Waiting Reply','Waiting Action','Follow Up','Approval Needed','Deadline'],
+  notes:  ['Idea','Reminder','Info','Question','To Research'],
+};
+const PRIORITY = ['🔴 Urgent','🟡 Normal','🟢 Low'];
+const LS_KEY = 'mydayhq_v3';
+const LS_DRIVE_KEY = 'mydayhq_drive';
+const LS_EXPORT_KEY = 'mydayhq_last_export';
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let appState = {tab:'tasks', filter:'All', editId:null, searchOpen:false};
+let data = lsLoad();
+let driveState = driveLoadState(); // {token, fileId, lastSync}
+
+// ── LOCAL STORAGE ─────────────────────────────────────────────────────────────
+function lsLoad(){
+  try{
+    const r = localStorage.getItem(LS_KEY);
+    return r ? JSON.parse(r) : {tasks:[],sayask:[],log:[],pending:[],notes:[]};
+  }catch(e){ return {tasks:[],sayask:[],log:[],pending:[],notes:[]}; }
+}
+function lsSave(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(data)); }catch(e){}
+}
+function driveLoadState(){
+  try{ const r = localStorage.getItem(LS_DRIVE_KEY); return r ? JSON.parse(r) : {}; }
+  catch(e){ return {}; }
+}
+function driveSaveState(){
+  try{ localStorage.setItem(LS_DRIVE_KEY, JSON.stringify(driveState)); }catch(e){}
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+let _id = Date.now();
+function uid(){ return 'i'+(++_id)+Math.random().toString(36).slice(2,7); }
+function timeNow(){ return new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}); }
+function dateNow(){ return new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'}); }
+function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.getElementById('date-label').textContent =
+  new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+renderTabs(); renderStats(); renderSection(); renderList();
+updateSyncDot();
+
+// Auto-sync to Drive every 2 minutes if connected
+setInterval(()=>{ if(driveState.token) driveSyncNow(true); }, 120000);
+
+// ── TABS ──────────────────────────────────────────────────────────────────────
+function renderTabs(){
+  document.getElementById('tabs').innerHTML = SECTIONS.map(s=>{
+    const m = SECTION_META[s];
+    return `<button class="tab${s===appState.tab?' active':''}" style="--tab-color:${m.color}" onclick="switchTab('${s}')">
+      <span class="tab-icon">${m.icon}</span>
+      <span class="tab-label">${m.label.split(' ')[0].toUpperCase()}</span>
+    </button>`;
+  }).join('');
+}
+function switchTab(t){
+  appState.tab=t; appState.filter='All';
+  document.getElementById('search-input').value='';
+  renderTabs(); renderStats(); renderSection(); renderList();
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────────
+function renderStats(){
+  document.getElementById('stats-row').innerHTML = SECTIONS.map(s=>{
+    const m = SECTION_META[s];
+    const items = data[s]||[];
+    const done = items.filter(i=>i.done).length;
+    const total = items.length;
+    const label = s==='tasks'&&total>0 ? `${done}/${total}` : (total||'·');
+    return `<div class="stat-chip${s===appState.tab?' active':''}" style="--tab-color:${m.color}" onclick="switchTab('${s}')">
+      <span class="stat-chip-icon">${m.icon}</span>
+      <span class="stat-chip-num">${label}</span>
+    </div>`;
+  }).join('');
+}
+
+// ── SECTION HEADER ────────────────────────────────────────────────────────────
+function renderSection(){
+  const m = SECTION_META[appState.tab];
+  document.getElementById('sec-title').textContent = m.icon+' '+m.label;
+  document.getElementById('sec-desc').textContent = m.desc;
+  document.getElementById('add-btn').style.background = m.color;
+  document.getElementById('fab').style.background = m.color;
+  const cats = ['All',...CATEGORIES[appState.tab]];
+  document.getElementById('chip-row').innerHTML = cats.map(c=>
+    `<button class="chip${c===appState.filter?' active':''}" style="${c===appState.filter?'background:'+m.color:''}" onclick="setFilter('${c}')">${c}</button>`
+  ).join('');
+}
+function setFilter(c){ appState.filter=c; renderSection(); renderList(); }
+
+// ── LIST ──────────────────────────────────────────────────────────────────────
+function renderList(){
+  const m = SECTION_META[appState.tab];
+  const q = (document.getElementById('search-input').value||'').toLowerCase();
+  let items = (data[appState.tab]||[]).filter(i=>{
+    const msCat = appState.filter==='All' || i.category===appState.filter;
+    const msQ = !q ||
+      (i.text&&i.text.toLowerCase().includes(q)) ||
+      (i.person&&i.person.toLowerCase().includes(q)) ||
+      (i.note&&i.note.toLowerCase().includes(q));
+    return msCat && msQ;
+  });
+  items = [...items].sort((a,b)=>{
+    if(a.done&&!b.done) return 1;
+    if(!a.done&&b.done) return -1;
+    return (PRIORITY.indexOf(a.priority)||99) - (PRIORITY.indexOf(b.priority)||99);
+  });
+  const el = document.getElementById('list');
+  if(!items.length){
+    const allDone = appState.tab==='tasks' && (data.tasks||[]).length>0 && (data.tasks||[]).every(i=>i.done);
+    el.innerHTML = allDone
+      ? '<div class="all-done">🎉 All done for today!</div>'
+      : `<div class="empty-state"><div class="empty-icon">${m.icon}</div><div style="font-size:14px;color:var(--text3)">Nothing here yet — tap + Add</div></div>`;
+    return;
+  }
+  el.innerHTML = items.map(item=>cardHTML(item,m)).join('');
+}
+
+function cardHTML(item,m){
+  const isDone = !!item.done;
+  const expandId = 'exp_'+item.id;
+  let metaH = '';
+  if(item.category) metaH+=`<span class="cat-badge" style="background:${m.color}22;color:${m.color}">${item.category}</span>`;
+  if(item.priority) metaH+=`<span class="pri-tag">${item.priority}</span>`;
+  if(item.time)     metaH+=`<span class="meta-txt">🕐 ${item.time}</span>`;
+  if(item.followUpDate) metaH+=`<span class="meta-txt">📅 ${item.followUpDate}</span>`;
+  if(item.createdAt) metaH+=`<span class="meta-txt">${item.createdAt}</span>`;
+  let expandH = '';
+  if(item.note)       expandH+=`<div class="note-line">📝 ${esc(item.note)}</div>`;
+  if(item.waitingFor) expandH+=`<div class="note-line">⏳ Waiting: ${esc(item.waitingFor)}</div>`;
+  if(item.whatDid)    expandH+=`<div class="note-line">✔ ${esc(item.whatDid)}</div>`;
+  if(item.doneAt)     expandH+=`<div class="note-line">✅ Logged ${item.doneAt}</div>`;
+  const moveBtn = appState.tab==='tasks'&&!isDone
+    ? `<button class="action-btn success" onclick="moveToLog('${item.id}')">📋 Log it</button>` : '';
+  return `<div class="card${isDone?' done-card':''}" style="--tab-color:${m.color}" id="card_${item.id}">
+    <div class="card-top" onclick="toggleExpand('${expandId}')">
+      ${appState.tab==='tasks'?`<button class="check-btn" onclick="event.stopPropagation();toggleDone('${item.id}')">${isDone?'✅':'⬜'}</button>`:''}
+      <div class="card-body">
+        <div class="card-text${isDone?' struck':''}">${esc(item.text)}${item.person?` <span class="person-tag">→ ${esc(item.person)}</span>`:''}</div>
+        <div class="card-meta">${metaH}</div>
+      </div>
+      <span class="expand-arrow">▾</span>
+    </div>
+    <div id="${expandId}" style="display:none">
+      <div class="card-expanded">
+        ${expandH}
+        <div class="action-row">
+          <button class="action-btn" onclick="openEdit('${item.id}')">✏️ Edit</button>
+          ${moveBtn}
+          <button class="action-btn danger" onclick="confirmDelete('${item.id}')">🗑 Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleExpand(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const open = el.style.display!=='none';
+  el.style.display = open?'none':'block';
+  const arrow = el.previousElementSibling?.querySelector('.expand-arrow');
+  if(arrow) arrow.textContent = open?'▾':'▴';
+}
+
+// ── ACTIONS ───────────────────────────────────────────────────────────────────
+function saveAndSync(){
+  lsSave();
+  if(driveState.token) driveSyncNow(true);
+}
+
+function toggleDone(id){
+  const arr = data[appState.tab];
+  const i = arr.findIndex(x=>x.id===id);
+  if(i>=0){ arr[i].done=!arr[i].done; saveAndSync(); renderList(); renderStats(); }
+}
+
+function moveToLog(id){
+  const i = data.tasks.findIndex(x=>x.id===id);
+  if(i<0) return;
+  const item = {...data.tasks[i]};
+  data.tasks.splice(i,1);
+  data.log.unshift({...item, id:uid(), category:'Completed', doneAt:timeNow()+' '+dateNow(), done:false});
+  saveAndSync(); renderList(); renderStats(); toast('Moved to Done Log ✅');
+}
+
+let deleteTargetId = null;
+function confirmDelete(id){
+  deleteTargetId = id;
+  document.getElementById('confirm-msg').textContent = 'Delete this item? This cannot be undone.';
+  document.getElementById('confirm-ok-btn').onclick = ()=>{ doDelete(); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+function doDelete(){
+  if(!deleteTargetId) return;
+  data[appState.tab] = data[appState.tab].filter(i=>i.id!==deleteTargetId);
+  deleteTargetId = null;
+  saveAndSync(); renderList(); renderStats(); toast('Deleted');
+}
+function closeConfirm(){ document.getElementById('confirm-overlay').classList.remove('open'); deleteTargetId=null; }
+
+// ── ADD/EDIT MODAL ────────────────────────────────────────────────────────────
+function openAdd(){ appState.editId=null; buildModal(null); document.getElementById('modal-overlay').classList.add('open'); }
+function openEdit(id){
+  const item = (data[appState.tab]||[]).find(x=>x.id===id);
+  if(!item) return;
+  appState.editId = id;
+  buildModal(item);
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); appState.editId=null; }
+
+function buildModal(item){
+  const s = appState.tab;
+  const m = SECTION_META[s];
+  const isEdit = !!item;
+  document.getElementById('modal-hdr').style.background = m.color;
+  document.getElementById('modal-title').textContent = (isEdit?'Edit':'Add')+' — '+m.label;
+  const cats = CATEGORIES[s];
+  const curCat = item?.category||cats[0];
+  const curPri = item?.priority||PRIORITY[1];
+  let html = `
+    <label class="field-label">What is it? *</label>
+    <textarea class="field-input" id="f_text" rows="3" placeholder="${fieldPlaceholder(s)}">${esc(item?.text||'')}</textarea>`;
+  if(s==='sayask'||s==='pending')
+    html+=`<label class="field-label">Person / Who</label>
+    <input class="field-input" id="f_person" placeholder="Name or role" value="${esc(item?.person||'')}"/>`;
+  if(s==='pending')
+    html+=`<label class="field-label">Waiting for</label>
+    <input class="field-input" id="f_waitingFor" placeholder="What are you waiting on?" value="${esc(item?.waitingFor||'')}"/>
+    <label class="field-label">Follow-up date</label>
+    <input class="field-input" id="f_followUpDate" type="date" value="${item?.followUpDate||''}"/>`;
+  if(s==='log')
+    html+=`<label class="field-label">Outcome / details</label>
+    <input class="field-input" id="f_whatDid" placeholder="What happened…" value="${esc(item?.whatDid||'')}"/>`;
+  if(s==='tasks')
+    html+=`<label class="field-label">Time / Deadline</label>
+    <input class="field-input" id="f_time" placeholder="e.g. 3:00 PM · Before EOD" value="${esc(item?.time||'')}"/>`;
+  html+=`<label class="field-label">Category</label>
+  <div class="modal-chips" id="chip-cat">
+    ${cats.map(c=>`<button class="chip${c===curCat?' active':''}" style="${c===curCat?'background:'+m.color:''}" onclick="pickChip(this,'chip-cat','${m.color}')">${c}</button>`).join('')}
+  </div>`;
+  if(s!=='log')
+    html+=`<label class="field-label">Priority</label>
+    <div class="modal-chips" id="chip-pri">
+      ${PRIORITY.map(p=>`<button class="chip${p===curPri?' active':''}" style="${p===curPri?'background:'+m.color:''}" onclick="pickChip(this,'chip-pri','${m.color}')">${p}</button>`).join('')}
+    </div>`;
+  html+=`<label class="field-label">Notes (optional)</label>
+  <textarea class="field-input" id="f_note" rows="2" placeholder="Extra context…">${esc(item?.note||'')}</textarea>
+  <button class="save-btn" style="background:${m.color}" onclick="saveItem()">${isEdit?'Save changes':'Add'}</button>
+  <div style="height:8px"></div>`;
+  document.getElementById('modal-body').innerHTML = html;
+  setTimeout(()=>{ const t=document.getElementById('f_text'); if(t&&!isEdit) t.focus(); },120);
+}
+
+function fieldPlaceholder(s){
+  const ph={tasks:'What needs to get done?',sayask:'What to say or ask?',log:'What did you accomplish?',pending:'What are you waiting for?',notes:'Capture the thought before it slips…'};
+  return ph[s]||'';
+}
+
+function pickChip(btn,groupId,color){
+  document.querySelectorAll('#'+groupId+' .chip').forEach(b=>{ b.classList.remove('active'); b.style.background=''; b.style.color=''; });
+  btn.classList.add('active'); btn.style.background=color; btn.style.color='#fff';
+}
+
+function saveItem(){
+  const text = (document.getElementById('f_text')?.value||'').trim();
+  if(!text){ const el=document.getElementById('f_text'); el.style.outline='2px solid #e55'; setTimeout(()=>el.style.outline='',800); return; }
+  const s = appState.tab;
+  const cat = document.querySelector('#chip-cat .chip.active')?.textContent || CATEGORIES[s][0];
+  const pri = document.querySelector('#chip-pri .chip.active')?.textContent || PRIORITY[1];
+  const base = appState.editId ? (data[s].find(i=>i.id===appState.editId)||{}) : {id:uid(),createdAt:timeNow()+' '+dateNow()};
+  const item = {...base, text, category:cat, priority:pri,
+    person: document.getElementById('f_person')?.value||base.person||'',
+    note:   document.getElementById('f_note')?.value||'',
+    time:   document.getElementById('f_time')?.value||'',
+    waitingFor:   document.getElementById('f_waitingFor')?.value||'',
+    followUpDate: document.getElementById('f_followUpDate')?.value||'',
+    whatDid:      document.getElementById('f_whatDid')?.value||'',
+  };
+  if(appState.editId){
+    const idx = data[s].findIndex(i=>i.id===appState.editId);
+    if(idx>=0) data[s][idx]=item;
+  } else {
+    data[s].unshift(item);
+  }
+  saveAndSync(); closeModal(); renderList(); renderStats();
+  toast(appState.editId?'Updated ✏️':'Added ✅');
+}
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+function toggleSearch(){
+  appState.searchOpen = !appState.searchOpen;
+  document.getElementById('search-bar').classList.toggle('open', appState.searchOpen);
+  if(appState.searchOpen) setTimeout(()=>document.getElementById('search-input').focus(),80);
+  else{ document.getElementById('search-input').value=''; renderList(); }
+}
+
+function maybeClose(e,id){ if(e.target===document.getElementById(id)) document.getElementById(id).classList.remove('open'); }
+
+// ── TOAST ─────────────────────────────────────────────────────────────────────
+let _toastT;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  clearTimeout(_toastT);
+  _toastT = setTimeout(()=>el.classList.remove('show'),2000);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// STORAGE PANEL
+// ─────────────────────────────────────────────────────────────────────────────
+function openStorage(){
+  updateStoragePanel();
+  document.getElementById('storage-overlay').classList.add('open');
+}
+function closeStorage(){ document.getElementById('storage-overlay').classList.remove('open'); }
+
+function updateStoragePanel(){
+  // Data summary
+  const total = SECTIONS.reduce((n,s)=>(data[s]||[]).length+n,0);
+  const taskDone = (data.tasks||[]).filter(i=>i.done).length;
+  document.getElementById('data-summary').innerHTML = `
+    <div style="font-size:13px;color:var(--text2);line-height:1.8">
+      ${SECTIONS.map(s=>`<div>${SECTION_META[s].icon} <b>${SECTION_META[s].label}:</b> ${(data[s]||[]).length} items</div>`).join('')}
+      <hr class="divider"/>
+      <div style="font-size:12px;color:var(--text3)">Total: ${total} items · Tasks done today: ${taskDone}/${(data.tasks||[]).length}</div>
+    </div>`;
+  // Last export
+  const lastExport = localStorage.getItem(LS_EXPORT_KEY);
+  document.getElementById('last-export-label').textContent = lastExport ? 'Last saved: '+lastExport : '';
+  // Drive status
+  updateDriveUI();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// MANUAL BACKUP / RESTORE
+// ─────────────────────────────────────────────────────────────────────────────
+function exportBackup(){
+  const json = JSON.stringify({version:1, exportedAt:new Date().toISOString(), data}, null, 2);
+  const blob = new Blob([json],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url;
+  a.download='MyDayHQ_'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  const label = dateNow()+' '+timeNow();
+  localStorage.setItem(LS_EXPORT_KEY, label);
+  document.getElementById('last-export-label').textContent = 'Last saved: '+label;
+  toast('Backup downloaded 💾');
+}
+
+function importBackup(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    try{
+      const parsed = JSON.parse(e.target.result);
+      const incoming = parsed.data || parsed; // support both formats
+      let valid = true;
+      SECTIONS.forEach(s=>{ if(!Array.isArray(incoming[s])) valid=false; });
+      if(!valid) throw new Error('Invalid format');
+      data = incoming;
+      lsSave();
+      renderList(); renderStats(); updateStoragePanel();
+      document.getElementById('restore-status').innerHTML = '<span class="status-green">✅ Restored successfully!</span>';
+      toast('Data restored ✅');
+    }catch(err){
+      document.getElementById('restore-status').innerHTML = '<span style="color:#e55">❌ Invalid backup file</span>';
+    }
+  };
+  reader.readAsText(file);
+  event.target.value='';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// GOOGLE DRIVE SYNC
+// Uses Google Drive REST API with OAuth2 implicit flow
+// ─────────────────────────────────────────────────────────────────────────────
+// NOTE: To use Google Drive, you need a Google Cloud project with Drive API enabled
+// and an OAuth Client ID. Steps:
+// 1. Go to console.cloud.google.com
+// 2. Create project → Enable "Google Drive API"
+// 3. Create OAuth 2.0 Client ID (Web application)
+// 4. Add your page URL to "Authorized JavaScript origins"
+// 5. Paste your Client ID below
+const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID_HERE'; // <-- Replace this
+const DRIVE_FILE_NAME = 'MyDayHQ_data.json';
+const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
+
+function isDriveConfigured(){ return GOOGLE_CLIENT_ID !== 'YOUR_GOOGLE_CLIENT_ID_HERE'; }
+
+function handleDriveAction(){
+  if(!isDriveConfigured()){
+    showDriveSetupInstructions();
+    return;
+  }
+  if(driveState.token){ driveSyncNow(); }
+  else { driveConnect(); }
+}
+
+function showDriveSetupInstructions(){
+  document.getElementById('drive-status').innerHTML = `
+    <div style="text-align:left;font-size:12px;line-height:1.7;color:var(--text2);margin-top:8px;">
+      <b style="color:var(--text)">To enable Google Drive sync:</b><br>
+      1. Go to <b>console.cloud.google.com</b><br>
+      2. Create a project → Enable <b>Google Drive API</b><br>
+      3. Create <b>OAuth 2.0 Client ID</b> (Web application)<br>
+      4. Add this page's URL to Authorized origins<br>
+      5. Open this HTML file, find <b>GOOGLE_CLIENT_ID</b> and paste your ID<br><br>
+      <span style="color:var(--text3)">Or use Manual Backup below — it works perfectly offline.</span>
+    </div>`;
+}
+
+function driveConnect(){
+  const params = new URLSearchParams({
+    client_id: GOOGLE_CLIENT_ID,
+    redirect_uri: window.location.href.split('?')[0].split('#')[0],
+    response_type: 'token',
+    scope: DRIVE_SCOPE,
+    prompt: 'select_account',
+  });
+  window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?'+params;
+}
+
+function driveDisconnect(){
+  driveState = {};
+  driveSaveState();
+  updateDriveUI();
+  updateSyncDot();
+  toast('Google Drive disconnected');
+}
+
+async function driveSyncNow(silent=false){
+  if(!driveState.token){ if(!silent) toast('Not connected to Google Drive'); return; }
+  try{
+    if(!silent) toast('Syncing…');
+    const json = JSON.stringify({version:1,savedAt:new Date().toISOString(),data});
+    let fileId = driveState.fileId;
+    if(!fileId){
+      // Search for existing file
+      const search = await gdriveRequest('GET',
+        `https://www.googleapis.com/drive/v3/files?q=name='${DRIVE_FILE_NAME}'+and+trashed=false&fields=files(id,name)`);
+      if(search.files&&search.files.length>0) fileId = search.files[0].id;
+    }
+    if(fileId){
+      // Update existing
+      await gdriveUpload(fileId, json);
+    } else {
+      // Create new
+      const meta = await gdriveRequest('POST','https://www.googleapis.com/drive/v3/files',{name:DRIVE_FILE_NAME,mimeType:'application/json'});
+      fileId = meta.id;
+      await gdriveUpload(fileId, json);
+    }
+    driveState.fileId = fileId;
+    driveState.lastSync = new Date().toISOString();
+    driveSaveState();
+    updateDriveUI();
+    updateSyncDot();
+    if(!silent) toast('Synced to Google Drive ☁️');
+  }catch(err){
+    if(err.message==='401'){ driveState.token=null; driveSaveState(); updateDriveUI(); updateSyncDot(); }
+    if(!silent) toast('Sync failed — check connection');
+  }
+}
+
+async function driveLoadFromCloud(){
+  if(!driveState.token||!driveState.fileId){ toast('No Drive file found'); return; }
+  try{
+    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${driveState.fileId}?alt=media`,
+      {headers:{Authorization:'Bearer '+driveState.token}});
+    if(!res.ok) throw new Error(res.status);
+    const parsed = await res.json();
+    const incoming = parsed.data||parsed;
+    data = incoming;
+    lsSave();
+    renderList(); renderStats();
+    toast('Data loaded from Drive ☁️');
+  }catch(err){
+    toast('Could not load from Drive');
+  }
+}
+
+async function gdriveRequest(method, url, body){
+  const opts = {method, headers:{'Authorization':'Bearer '+driveState.token,'Content-Type':'application/json'}};
+  if(body) opts.body = JSON.stringify(body);
+  const res = await fetch(url, opts);
+  if(!res.ok) throw new Error(res.status+'');
+  return res.json();
+}
+
+async function gdriveUpload(fileId, content){
+  const res = await fetch(
+    `https://www.googleapis.com/upload/drive/v3/files/${fileId}?uploadType=media`,
+    {method:'PATCH', headers:{'Authorization':'Bearer '+driveState.token,'Content-Type':'application/json'}, body:content}
+  );
+  if(!res.ok) throw new Error(res.status+'');
+  return res.json();
+}
+
+function updateDriveUI(){
+  const connected = !!driveState.token;
+  const configured = isDriveConfigured();
+  const driveBtn = document.getElementById('drive-btn');
+  const syncNowBtn = document.getElementById('drive-sync-now-btn');
+  const disconnectBtn = document.getElementById('drive-disconnect-btn');
+  const statusEl = document.getElementById('drive-status');
+  if(!configured){
+    statusEl.innerHTML = '<span class="status-orange">⚙️ Needs setup — tap button for instructions</span>';
+    driveBtn.textContent='How to set up';
+    driveBtn.style.background='var(--surface2)'; driveBtn.style.color='var(--text2)';
+    syncNowBtn.style.display='none'; disconnectBtn.style.display='none';
+  } else if(connected){
+    const ago = driveState.lastSync ? 'Last sync: '+new Date(driveState.lastSync).toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}) : 'Not synced yet';
+    statusEl.innerHTML = `<span class="status-green">✅ Connected · ${ago}</span>`;
+    driveBtn.style.display='none';
+    syncNowBtn.style.display='block';
+    disconnectBtn.style.display='block';
+  } else {
+    statusEl.innerHTML = '<span class="status-orange">Not connected</span>';
+    driveBtn.style.display='block'; driveBtn.textContent='Connect Google Drive'; driveBtn.style.background='var(--task)'; driveBtn.style.color='#fff';
+    syncNowBtn.style.display='none'; disconnectBtn.style.display='none';
+  }
+}
+
+function updateSyncDot(){
+  const dot = document.getElementById('sync-dot');
+  if(driveState.token){ dot.classList.add('on'); dot.classList.remove('warn'); }
+  else{ dot.classList.remove('on'); }
+}
+
+// Handle OAuth redirect token
+(function handleOAuthReturn(){
+  const hash = window.location.hash;
+  if(hash && hash.includes('access_token')){
+    const params = new URLSearchParams(hash.slice(1));
+    const token = params.get('access_token');
+    if(token){
+      driveState.token = token;
+      driveSaveState();
+      window.history.replaceState(null,'',window.location.pathname);
+      updateDriveUI(); updateSyncDot();
+      driveSyncNow();
+    }
+  }
+})();
+</script>
+</body>
+</html>
